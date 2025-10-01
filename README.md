@@ -20,11 +20,11 @@ Projeto Vue 3 configurado com TypeScript, Pinia, Vue Router e estrutura completa
 ## Recommended Browser Setup
 
 - Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+    - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+    - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
 - Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+    - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+    - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
 ## Type Support for `.vue` Imports in TS
 
@@ -117,12 +117,12 @@ import { ref } from 'vue'
 
 // Props com TypeScript
 interface Props {
-  title: string
-  count?: number
+    title: string
+    count?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  count: 0
+    count: 0,
 })
 
 // Estado reativo
@@ -130,16 +130,16 @@ const value = ref(0)
 
 // Função
 function increment() {
-  value.value++
+    value.value++
 }
 </script>
 
 <template>
-  <div>
-    <h2>{{ title }}</h2>
-    <p>{{ value }}</p>
-    <button @click="increment">+</button>
-  </div>
+    <div>
+        <h2>{{ title }}</h2>
+        <p>{{ value }}</p>
+        <button @click="increment">+</button>
+    </div>
 </template>
 
 <style scoped>
@@ -169,18 +169,18 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useMeuModuloStore = defineStore('meuModulo', () => {
-  // Estado
-  const items = ref<string[]>([])
-  
-  // Computed
-  const itemCount = computed(() => items.value.length)
-  
-  // Actions
-  function addItem(item: string) {
-    items.value.push(item)
-  }
-  
-  return { items, itemCount, addItem }
+    // Estado
+    const items = ref<string[]>([])
+
+    // Computed
+    const itemCount = computed(() => items.value.length)
+
+    // Actions
+    function addItem(item: string) {
+        items.value.push(item)
+    }
+
+    return { items, itemCount, addItem }
 })
 ```
 
@@ -191,13 +191,13 @@ export const useMeuModuloStore = defineStore('meuModulo', () => {
 import { ref } from 'vue'
 
 export function useMeuComposable() {
-  const state = ref(0)
-  
-  function increment() {
-    state.value++
-  }
-  
-  return { state, increment }
+    const state = ref(0)
+
+    function increment() {
+        state.value++
+    }
+
+    return { state, increment }
 }
 ```
 
@@ -214,7 +214,7 @@ const emailValido = isValidEmail('teste@email.com') // true
 
 // Debounce
 const buscar = debounce((termo: string) => {
-  console.log('Buscando:', termo)
+    console.log('Buscando:', termo)
 }, 300)
 ```
 
@@ -227,6 +227,7 @@ cp .env.example .env
 ```
 
 Variáveis disponíveis:
+
 - `VITE_API_BASE_URL` - URL base da API
 - `VITE_ENABLE_ANALYTICS` - Habilitar analytics
 - `VITE_ENABLE_MOCK` - Usar dados mock

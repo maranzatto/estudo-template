@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import CounterDisplay from '@/components/CounterDisplay.vue'
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
 </script>
 
 <template>
-    <div class="home-view">
+    <div class="dashboard-view">
         <section class="hero">
-            <h1>🎯 Bem-vindo ao seu MVP</h1>
-            <p class="subtitle">Projeto Vue 3 + TypeScript configurado e pronto para crescer</p>
+            <h1>🎯 Dashboard</h1>
+            <p class="subtitle">Bem-vindo, {{ userStore.userName }}!</p>
         </section>
 
         <section class="demo-section">
@@ -43,7 +46,7 @@ import CounterDisplay from '@/components/CounterDisplay.vue'
 </template>
 
 <style scoped>
-.home-view {
+.dashboard-view {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -74,7 +77,7 @@ import CounterDisplay from '@/components/CounterDisplay.vue'
 
 .demo-section h2 {
     text-align: center;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 2rem;
 }
 
@@ -84,7 +87,7 @@ import CounterDisplay from '@/components/CounterDisplay.vue'
 
 .features h2 {
     text-align: center;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 2rem;
 }
 
@@ -96,7 +99,7 @@ import CounterDisplay from '@/components/CounterDisplay.vue'
 }
 
 .feature-card {
-    background: white;
+    background: var(--bg-primary);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -116,13 +119,13 @@ import CounterDisplay from '@/components/CounterDisplay.vue'
 }
 
 .feature-card h3 {
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
 }
 
 .feature-card p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.5;
 }

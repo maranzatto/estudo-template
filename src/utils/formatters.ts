@@ -8,10 +8,10 @@
  * @returns String formatada como R$ 1.234,56
  */
 export function formatCurrency(value: number): string {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(value)
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    }).format(value)
 }
 
 /**
@@ -21,20 +21,20 @@ export function formatCurrency(value: number): string {
  * @returns String formatada como DD/MM/YYYY ou DD/MM/YYYY HH:mm
  */
 export function formatDate(date: Date | string, includeTime = false): string {
-  const dateObj = typeof date === 'string' ? new Date(date) : date
-  
-  const options: Intl.DateTimeFormatOptions = {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  }
-  
-  if (includeTime) {
-    options.hour = '2-digit'
-    options.minute = '2-digit'
-  }
-  
-  return new Intl.DateTimeFormat('pt-BR', options).format(dateObj)
+    const dateObj = typeof date === 'string' ? new Date(date) : date
+
+    const options: Intl.DateTimeFormatOptions = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    }
+
+    if (includeTime) {
+        options.hour = '2-digit'
+        options.minute = '2-digit'
+    }
+
+    return new Intl.DateTimeFormat('pt-BR', options).format(dateObj)
 }
 
 /**
@@ -43,8 +43,8 @@ export function formatDate(date: Date | string, includeTime = false): string {
  * @returns String formatada como 123.456.789-00
  */
 export function formatCPF(cpf: string): string {
-  const cleaned = cpf.replace(/\D/g, '')
-  return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+    const cleaned = cpf.replace(/\D/g, '')
+    return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
 }
 
 /**
@@ -53,8 +53,8 @@ export function formatCPF(cpf: string): string {
  * @returns String formatada como 12.345.678/0001-00
  */
 export function formatCNPJ(cnpj: string): string {
-  const cleaned = cnpj.replace(/\D/g, '')
-  return cleaned.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5')
+    const cleaned = cnpj.replace(/\D/g, '')
+    return cleaned.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5')
 }
 
 /**
@@ -63,15 +63,15 @@ export function formatCNPJ(cnpj: string): string {
  * @returns String formatada como (11) 98765-4321
  */
 export function formatPhone(phone: string): string {
-  const cleaned = phone.replace(/\D/g, '')
-  
-  if (cleaned.length === 11) {
-    return cleaned.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
-  } else if (cleaned.length === 10) {
-    return cleaned.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3')
-  }
-  
-  return phone
+    const cleaned = phone.replace(/\D/g, '')
+
+    if (cleaned.length === 11) {
+        return cleaned.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+    } else if (cleaned.length === 10) {
+        return cleaned.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3')
+    }
+
+    return phone
 }
 
 /**
@@ -80,8 +80,8 @@ export function formatPhone(phone: string): string {
  * @returns String formatada como 12345-678
  */
 export function formatCEP(cep: string): string {
-  const cleaned = cep.replace(/\D/g, '')
-  return cleaned.replace(/(\d{5})(\d{3})/, '$1-$2')
+    const cleaned = cep.replace(/\D/g, '')
+    return cleaned.replace(/(\d{5})(\d{3})/, '$1-$2')
 }
 
 /**
@@ -90,7 +90,7 @@ export function formatCEP(cep: string): string {
  * @returns String formatada como 1.234.567
  */
 export function formatNumber(value: number): string {
-  return new Intl.NumberFormat('pt-BR').format(value)
+    return new Intl.NumberFormat('pt-BR').format(value)
 }
 
 /**
@@ -99,13 +99,13 @@ export function formatNumber(value: number): string {
  * @returns String formatada como 1.5 MB
  */
 export function formatBytes(bytes: number): string {
-  if (bytes === 0) return '0 Bytes'
-  
-  const k = 1024
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  
-  return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i]
+    if (bytes === 0) return '0 Bytes'
+
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
 }
 
 /**
@@ -115,8 +115,8 @@ export function formatBytes(bytes: number): string {
  * @returns Texto truncado
  */
 export function truncate(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text
-  return text.slice(0, maxLength) + '...'
+    if (text.length <= maxLength) return text
+    return text.slice(0, maxLength) + '...'
 }
 
 /**
@@ -125,9 +125,9 @@ export function truncate(text: string, maxLength: number): string {
  * @returns Texto capitalizado
  */
 export function capitalize(text: string): string {
-  return text
-    .toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+    return text
+        .toLowerCase()
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
 }

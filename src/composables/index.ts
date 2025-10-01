@@ -1,6 +1,6 @@
 /**
  * Arquivo de índice para exportar todos os composables
- * 
+ *
  * Isso permite importar múltiplos composables de uma vez:
  * import { useCounter, useTheme } from '@/composables'
  */
