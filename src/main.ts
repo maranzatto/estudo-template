@@ -5,9 +5,10 @@ import App from './App.vue'
 import router from './router'
 import { useUserStore } from './stores/user'
 import { useThemeStore } from './stores/theme'
+import './assets/main.css'
 
 // Importar CSS customizado (funciona sem Tailwind)
-import './assets/styles.css'
+import './assets/main.css'
 
 const app = createApp(App)
 

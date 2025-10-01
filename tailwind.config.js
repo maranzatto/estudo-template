@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import typography from '@tailwindcss/typography'
-import forms from '@tailwindcss/forms'
 
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -112,5 +110,5 @@ export default {
             },
         },
     },
-    plugins: [typography, forms],
+    plugins: []
 }
